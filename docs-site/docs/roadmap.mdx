@@ -1,0 +1,45 @@
+---
+sidebar_position: 13
+---
+
+# Roadmap
+
+## Done (v2.5.0)
+
+- GitHub OAuth login
+- Plan system (Free / Pro / Team) with 14-day trials
+- Telegram Stars payments
+- System Status page
+- Security headers on all services
+- Profile page redesign
+
+## In Progress
+
+- Incident acknowledgement + assignment
+- Maintenance windows (scheduled alert pauses)
+- Monitor tags and groups
+- Escalation policies (notify second channel after N minutes unacked)
+
+## Planned
+
+### Reliability
+- Alembic migrations (replace additive column migrations)
+- Durable job queue (Redis/RQ or ARQ) for 1k+ monitors
+- Second-region confirmation (re-check down signals)
+- Rate limiting on auth and heartbeat endpoints
+
+### Features
+- 30–90 day SLA charts
+- Runbook notes per monitor
+- Docker / docker-compose one-command self-host
+- Custom domains for status pages
+- CLI for monitor management
+
+### Scaling
+- **MVP (current):** ≤100 monitors, 1 worker, 1-min checks
+- **Beta:** ~1k monitors, Redis queue, multiple worker replicas
+- **Production:** 10k+ monitors, distributed workers across regions
+
+## Community
+
+We welcome contributions! See the [GitHub repository](https://github.com/Robibiruk/PulseWatch) for open issues and the contributing guide.

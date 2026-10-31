@@ -1,0 +1,95 @@
+import sys
+from pathlib import Path
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Resolve .env relative to *this file's* directory (backend/), so the app works
+# regardless of the working directory it is launched from.
+_BACKEND_DIR = Path(__file__).resolve().parent
+_ENV_FILE = str(_BACKEND_DIR / ".env")
+
+# Windows consoles default to cp1252, which crashes on the emoji used in alert
+# copy (e.g. 🚨). Force UTF-8 so the worker/notifications print fallbacks safely
+# on any platform. Guarded for exotic runtimes without reconfigure().
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
+
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=_ENV_FILE, extra="ignore")
+
+    # Database
+    database_url: str = "postgresql+asyncpg://user:pass@host/dbname"
+
+    # Auth
+    secret_key: str = "dev-insecure-change-me"
+    algorithm: str = "HS256"
+    access_token_expire_minutes: int = 1440
+
+    # CORS
+    cors_origins: str = "http://localhost:5173"
+
+    # Worker / scheduler
+    poll_interval: int = 15
+    worker_concurrency: int = 20
+    no_worker: bool = False
+    failure_threshold: int = 3
+    confirmation_delay: int = 10
+    ssl_warn_days: int = 14
+    checkin_interval_minutes: int = 1440  # periodic "how are your services" digest
+
+    # Telegram
+    telegram_bot_token: str = ""
+    telegram_chat_id: str = ""
+    no_telegram_bot: bool = False
+    public_base_url: str = "http://localhost:8000"
+
+    # Resend email
+    resend_api_key: str = ""
+    alert_from_email: str = "alerts@yourdomain.com"
+    alert_to_email: str = ""
+
+    # Other alert channels (global fallback; per-user values take precedence)
+    discord_webhook_url: str = ""
+    slack_webhook_url: str = ""
+    generic_webhook_url: str = ""
+
+    # OpenRouter (AI explanations)
+    openrouter_api_key: str = ""
+    openrouter_model: str = "openai/gpt-oss-20b:free"
+
+    # Fail fast if SECRET_KEY is the insecure default
+    def model_post_init(self, __context) -> None:
+        if self.secret_key in ("dev-insecure-change-me", ""):
+            raise ValueError(
+                "SECRET_KEY must be set to a secure random value in production. "
+                "Generate one: python -c \"import secrets; print(secrets.token_urlsafe(48))\""
+            )
+
+    # GitHub OAuth
+    github_client_id: str = ""
+    github_client_secret: str = ""
+    frontend_url: str = "http://localhost:5173"
+
+    # Admin override — these emails always get team-tier access
+    admin_emails: str = "robekmedia@gmail.com"
+
+    @property
+    def cors_origin_list(self) -> list[str]:
+        return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
+
+    @property
+    def public_base_url_clean(self) -> str:
+        """public_base_url with trailing slashes stripped (avoids double-slash redirect URIs)."""
+        return self.public_base_url.rstrip("/")
+
+    @property
+    def admin_email_list(self) -> list[str]:
+        return [e.strip().lower() for e in self.admin_emails.split(",") if e.strip()]
+
+    def is_admin(self, email: str) -> bool:
+        return email.lower() in self.admin_email_list
+
+
+settings = Settings()
