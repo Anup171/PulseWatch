@@ -140,7 +140,7 @@ async def explain_incident(
                             ),
                         },
                     ],
-                    "max_tokens": 350,
+                    "max_tokens": 1500,
                 },
             )
 
