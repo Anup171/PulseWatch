@@ -1,3 +1,28 @@
 {
-    "r.lsp.promptToInstall": false
+    "r.lsp.promptToInstall": false,
+    "github-actions.remote.showUndeclaredSecretsWarnings": false,
+    "markdownlint.config": {
+        "default": true,
+        "MD013": false,
+        "MD033": false,
+        "MD041": false,
+        "MD001": false,
+        "MD026": false,
+        "MD024": false,
+        "MD029": false,
+        "MD034": false,
+        "MD009": false
+    },
+    "cSpell.words": [
+        "aiosqlite",
+        "Anup",
+        "Bhandarkar",
+        "PulseWatch",
+        "Robel",
+        "docusaurus",
+        "fastapi",
+        "uvicorn",
+        "asyncpg",
+        "pydantic"
+    ]
 }

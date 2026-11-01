@@ -207,7 +207,7 @@ The Azure VM provides persistent compute for the FastAPI API, monitoring worker,
 <img src="./docs/diagrams/production-architecture.svg"
      width="100%"
      alt="PulseWatch production architecture showing Vercel, Azure Linux VM, FastAPI, monitoring worker, PostgreSQL, Telegram, notifications, OpenRouter and GPT-OSS-20B"/>
-     
+
 ### Azure VM
 
 The Azure VM is the **persistent compute layer** of the current production deployment.
