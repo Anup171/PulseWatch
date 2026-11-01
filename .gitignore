@@ -27,3 +27,8 @@ docs-site/build/
 stitch_pulsewatch_uptime_monitoring_platform/
 stitch_pulsewatch_uptime_monitoring_platform_V2/
 stitch_pulsewatch_docs_style/
+
+# Linting
+.markdownlint.json
+markdownlint.json
+
