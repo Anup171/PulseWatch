@@ -14,7 +14,7 @@ const config: Config = {
   url: 'https://pulsewatch.dev',
   baseUrl: '/',
 
-  organizationName: 'Robibiruk',
+  organizationName: 'Anup171',
   projectName: 'PulseWatch',
   onBrokenLinks: 'throw',
   i18n: {
@@ -90,7 +90,7 @@ const config: Config = {
         { type: 'docSidebar', sidebarId: 'mainSidebar', position: 'left', label: 'Docs' },
         { to: '/blog', label: 'Changelog', position: 'left' },
         {
-          href: 'https://github.com/Robibiruk/PulseWatch',
+          href: 'https://github.com/Anup171/PulseWatch',
           label: 'GitHub',
           position: 'right',
         },
@@ -111,9 +111,9 @@ const config: Config = {
         {
           title: 'Community',
           items: [
-            { label: 'GitHub', href: 'https://github.com/Robibiruk/PulseWatch' },
-            { label: 'Report an Issue', href: 'https://github.com/Robibiruk/PulseWatch/issues' },
-            { label: 'Discussions', href: 'https://github.com/Robibiruk/PulseWatch/discussions' },
+            { label: 'GitHub', href: 'https://github.com/Anup171/PulseWatch' },
+            { label: 'Report an Issue', href: 'https://github.com/Anup171/PulseWatch/issues' },
+            { label: 'Discussions', href: 'https://github.com/Anup171/PulseWatch/discussions' },
           ],
         },
         {
@@ -132,7 +132,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} PulseWatch. Built with ❤️ by Robel Biruk.`,
+      copyright: `Copyright © ${new Date().getFullYear()} PulseWatch. Built with ❤️ by Anup Bhandarkar.`,
     },
     prism: {
       theme: prismThemes.github,

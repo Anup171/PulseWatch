@@ -24,7 +24,7 @@
 
 <div align="center">
 
-<a href="https://github.com/Robibiruk/PulseWatch">GitHub</a> · <a href="https://t.me/iamrobiii">Telegram</a> · <a href="https://www.linkedin.com/in/robel-biruk-5923101b5/">LinkedIn</a> · <a href="https://pulsewatch-monitor.vercel.app">Live Demo</a> · <a href="#quick-start">Quick Start</a>
+<a href="https://github.com/Anup171/PulseWatch">GitHub</a> · <a href="#quick-start">Quick Start</a>
 
 </div>
 
@@ -64,7 +64,7 @@
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/Robibiruk/PulseWatch.git
+git clone https://github.com/Anup171/PulseWatch.git
 cd PulseWatch
 ```
 
@@ -866,7 +866,7 @@ Future
 
 <div align="center">
 
-**[Robel Biruk](https://www.linkedin.com/in/robel-biruk-5923101b5/)** — [@Robibiruk](https://github.com/Robibiruk)
+**[Anup Bhandarkar](https://github.com/Anup171)** — [@Anup171](https://github.com/Anup171)
 
 </div>
 

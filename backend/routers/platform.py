@@ -302,9 +302,9 @@ async def submit_feedback(
 async def about(current: User = Depends(get_current_user)):
     return {
         "version": APP_VERSION,
-        "developer": "Robel Biruk",
+        "developer": "Anup Bhandarkar",
         "tech_stack": TECH_STACK,
         "support_email": SUPPORT_EMAIL,
-        "github": "https://github.com/Robibiruk",
+        "github": "https://github.com/Anup171",
         "docs": "/docs",
     }
