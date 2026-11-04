@@ -6,7 +6,7 @@ export default function PagePrivacy() {
       <div className="content">
         <article className="glass-2 doc-article" style={{ maxWidth: 760, margin: "0 auto", padding: 32 }}>
           <h1>Privacy Policy</h1>
-          <p><strong>Effective:</strong> {new Date().getFullYear()} · <strong>Controller:</strong> Robel Biruk · <strong>Email:</strong> robekmedia@gmail.com</p>
+          <p><strong>Effective:</strong> {new Date().getFullYear()} · <strong>Controller:</strong> Anup Bhandarkar · <strong>Email:</strong> anupbhandarkar171@gmail.com</p>
           <h3>What we collect</h3>
           <p>
             PulseWatch stores account credentials (email, hashed password), monitor configurations
@@ -23,7 +23,7 @@ export default function PagePrivacy() {
           <p>
             Data is retained until you delete your account. Account deletion permanently removes user,
             monitor, incident, token, and session records. Contact{" "}
-            <a href="mailto:robekmedia@gmail.com">robekmedia@gmail.com</a> for deletion requests
+            <a href="mailto:anupbhandarkar171@gmail.com">anupbhandarkar171@gmail.com</a> for deletion requests
             or GDPR inquiries.
           </p>
           <h3>Security</h3>

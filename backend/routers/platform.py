@@ -266,7 +266,7 @@ async def delete_account(
 
 
 # ── Support / feedback ─────────────────────────────────────────────────────
-SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "robekmedia@gmail.com")
+SUPPORT_EMAIL = os.environ.get("SUPPORT_EMAIL", "anupbhandarkar171@gmail.com")
 
 
 @router.post("/support")

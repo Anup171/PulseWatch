@@ -466,7 +466,7 @@ export default function Settings() {
         <div className="set-card glass-2">
           <h3>About PulseWatch</h3>
           <Row icon="heart-pulse" title="Version" desc={about?.version || "2.4.0"} />
-          <Row icon="server" title="Built by" desc={about?.developer || "Robel Biruk"} />
+          <Row icon="server" title="Built by" desc={about?.developer || "Anup Bhandarkar"} />
           <Row icon="settings" title="Tech stack" desc={(about?.tech_stack || ["React", "FastAPI", "PostgreSQL", "Neon"]).join(" · ")} />
           <div style={{ display: "flex", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
             {about?.github && <a className="btn btn-ghost btn-sm" href={about.github} target="_blank" rel="noreferrer"><BrandIcon name="github" size={14} /> GitHub</a>}

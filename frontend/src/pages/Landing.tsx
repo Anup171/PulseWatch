@@ -162,18 +162,18 @@ export default function Landing() {
             <a href={DOCS_HOME_URL} target="_blank" rel="noreferrer">Documentation</a>
             <a href={DOCS_API_URL} target="_blank" rel="noreferrer">API</a>
 
-            <a href="https://github.com/Robibiruk" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://github.com/Anup171" target="_blank" rel="noreferrer">GitHub</a>
           </div>
           <div className="lf-col">
             <h4>Company</h4>
             <a href="/login">About</a>
             <a href="/login">Privacy</a>
             <a href="/login">Terms</a>
-            <a href="mailto:robekmedia@gmail.com">Contact</a>
+            <a href="mailto:anupbhandarkar171@gmail.com">Contact</a>
           </div>
         </div>
         <div className="lf-bottom">
-          <span>© {new Date().getFullYear()} PulseWatch · Built by Robel Biruk</span>
+          <span>© {new Date().getFullYear()} PulseWatch · Built by Anup Bhandarkar</span>
           <span>v2.4.0</span>
         </div>
       </footer>

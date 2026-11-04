@@ -7,7 +7,7 @@ export default function PageLicense() {
         <article className="glass-2 doc-article" style={{ maxWidth: 760, margin: "0 auto", padding: 32 }}>
           <h1>License</h1>
           <p>
-            PulseWatch platform and product names are proprietary to <strong>Robel Biruk</strong>.
+            PulseWatch platform and product names are proprietary to <strong>Anup Bhandarkar</strong>.
             All rights reserved.
           </p>
           <h3>General license</h3>
@@ -17,7 +17,7 @@ export default function PageLicense() {
           </p>
           <h3>Trademarks</h3>
           <p>
-            PulseWatch, ▰PulseWatch, and associated logos are trademarks of Robel Biruk.
+            PulseWatch, ▰PulseWatch, and associated logos are trademarks of Anup Bhandarkar.
           </p>
           <h3>Third-party notices</h3>
           <p>

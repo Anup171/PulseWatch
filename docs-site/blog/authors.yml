@@ -1,8 +1,8 @@
-robel:
-  name: Robel Biruk
+anup:
+  name: Anup Bhandarkar
   title: Creator of PulseWatch
-  url: https://github.com/Robibiruk
-  image_url: https://github.com/Robibiruk.png
+  url: https://github.com/Anup171
+  image_url: /img/anup.jpg
   page: true
   socials:
-    github: Robibiruk
+    github: Anup171

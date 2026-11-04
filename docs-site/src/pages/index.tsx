@@ -19,7 +19,7 @@ function HomepageHeader() {
           <Link className="button button--secondary button--lg" to="/docs/getting-started">
             Get Started
           </Link>
-          <Link className="button button--primary button--lg" to="https://github.com/pulsewatch/pulsewatch">
+          <Link className="button button--primary button--lg" to="https://github.com/Anup171/PulseWatch">
             GitHub
           </Link>
         </div>

@@ -13,7 +13,7 @@ export function navbar() {
         position: 'right',
       },
       {
-        href: 'https://github.com/Robibiruk/PulseWatch',
+        href: 'https://github.com/Anup171/PulseWatch',
         label: 'GitHub',
         position: 'right',
       },

@@ -73,7 +73,7 @@ class Settings(BaseSettings):
     frontend_url: str = "http://localhost:5173"
 
     # Admin override — these emails always get team-tier access
-    admin_emails: str = "robekmedia@gmail.com"
+    admin_emails: str = "anupbhandarkar171@gmail.com"
 
     @property
     def cors_origin_list(self) -> list[str]:
