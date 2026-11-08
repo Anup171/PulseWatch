@@ -437,7 +437,7 @@ label.field { display: block; font-size: 11px; font-weight: 600; letter-spacing:
 /* pricing */
 .price-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 780px; margin: 30px auto 0; }
 @media (max-width: 680px) { .price-grid { grid-template-columns: 1fr; } }
-.price { padding: 30px; border-radius: var(--radius-lg); }
+.price { padding: 30px; border-radius: var(--radius-lg); position: relative; }
 .price.featured { border-color: rgba(255,255,255,0.4); }
 .price h3 { margin: 0 0 6px; font-size: 20px; }
 .price .p { font-size: 34px; font-weight: 700; margin: 8px 0 2px; }
