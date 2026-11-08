@@ -1,6 +1,10 @@
 {
     "r.lsp.promptToInstall": false,
     "github-actions.remote.showUndeclaredSecretsWarnings": false,
+    "github-actions.workflows.pinned.workflows": [],
+    "github-actions.ignore": [],
+    "github-actions.remote.showUndeclaredVariablesWarnings": false,
+    "github-actions.showContextAccessWarning": false,
     "markdownlint.config": {
         "default": true,
         "MD013": false,

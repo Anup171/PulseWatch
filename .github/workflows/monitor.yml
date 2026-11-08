@@ -38,14 +38,20 @@ jobs:
 
       - name: Run one monitoring tick
         env:
-          DATABASE_URL: ${{ secrets['DATABASE_URL'] }}
-          SECRET_KEY: ${{ secrets['SECRET_KEY'] }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets['TELEGRAM_BOT_TOKEN'] }}
-          TELEGRAM_CHAT_ID: ${{ secrets['TELEGRAM_CHAT_ID'] }}
-          RESEND_API_KEY: ${{ secrets['RESEND_API_KEY'] }}
-          ALERT_FROM_EMAIL: ${{ secrets['ALERT_FROM_EMAIL'] }}
-          ALERT_TO_EMAIL: ${{ secrets['ALERT_TO_EMAIL'] }}
-          OPENROUTER_API_KEY: ${{ secrets['OPENROUTER_API_KEY'] }}
-          OPENROUTER_MODEL: ${{ secrets['OPENROUTER_MODEL'] }}
-          CORS_ORIGINS: ${{ secrets['CORS_ORIGINS'] }}
-        run: python backend/worker_runner.py
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SECRET_KEY: ${{ secrets.SECRET_KEY || 'ci-worker-default-secret-key-1234567890' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERT_FROM_EMAIL: ${{ secrets.ALERT_FROM_EMAIL }}
+          ALERT_TO_EMAIL: ${{ secrets.ALERT_TO_EMAIL }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ secrets.OPENROUTER_MODEL }}
+          CORS_ORIGINS: ${{ secrets.CORS_ORIGINS }}
+        run: |
+          if [ -z "$DATABASE_URL" ]; then
+            echo "[notice] DATABASE_URL secret is not configured in GitHub repository secrets."
+            echo "[notice] Skipping monitoring tick without failing the workflow run."
+            exit 0
+          fi
+          python backend/worker_runner.py
