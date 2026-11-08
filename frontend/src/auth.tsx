@@ -7,6 +7,8 @@ type Ctx = {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string, name: string) => Promise<void>;
   logout: () => void;
+  setUser: (user: any) => void;
+  setTokenAndUser: (token: string) => Promise<any>;
 };
 
 const AuthContext = createContext<Ctx>(null as any);
@@ -35,13 +37,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem("pw_token", access_token);
     setUser(await api.me());
   };
+  const setTokenAndUser = async (token: string) => {
+    localStorage.setItem("pw_token", token);
+    const u = await api.me();
+    setUser(u);
+    return u;
+  };
   const logout = () => {
     localStorage.removeItem("pw_token");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, setUser, setTokenAndUser }}>
       {children}
     </AuthContext.Provider>
   );

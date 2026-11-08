@@ -8,7 +8,7 @@ import PlanSelection from "../components/PlanSelection";
 const API_BASE = (import.meta.env.VITE_API_BASE as string) || "http://localhost:8000";
 
 export default function Login() {
-  const { login, register, user } = useAuth();
+  const { login, register, user, setTokenAndUser } = useAuth();
   const nav = useNavigate();
   const [params] = useSearchParams();
   const [mode, setMode] = useState<"login" | "register">("login");
@@ -21,27 +21,39 @@ export default function Login() {
   const [planParam, setPlanParam] = useState<string | undefined>(undefined);
   const [trialExpired, setTrialExpired] = useState(false);
 
+  // If already authenticated and not processing a token callback, redirect to dashboard
+  useEffect(() => {
+    if (user && !params.get("token")) {
+      nav("/dashboard", { replace: true });
+    }
+  }, [user, params, nav]);
+
   // Handle GitHub OAuth callback — token arrives as ?token=... in the URL
   useEffect(() => {
     const token = params.get("token");
     const planFromUrl = params.get("plan") || undefined;
     if (planFromUrl) setPlanParam(planFromUrl);
     if (token) {
-      localStorage.setItem("pw_token", token);
-      api.me().then(async () => {
-        const onb = await api.checkOnboarding().catch(() => ({ needs_onboarding: false, trial_expired: false }));
-        if (onb.needs_onboarding || onb.trial_expired) {
-          setTrialExpired(onb.trial_expired);
-          setPlanParam(planFromUrl || (onb.trial_expired ? "pro" : undefined));
-          setShowPlan(true);
-        } else {
-          nav("/dashboard", { replace: true });
-        }
-      }).catch(() => {});
+      setBusy(true);
+      setTokenAndUser(token)
+        .then(async () => {
+          const onb = await api.checkOnboarding().catch(() => ({ needs_onboarding: false, trial_expired: false }));
+          if (onb.needs_onboarding || onb.trial_expired) {
+            setTrialExpired(onb.trial_expired);
+            setPlanParam(planFromUrl || (onb.trial_expired ? "pro" : undefined));
+            setShowPlan(true);
+          } else {
+            nav("/dashboard", { replace: true });
+          }
+        })
+        .catch((e: any) => {
+          setErr("Authentication failed: " + (e?.message || "unable to load profile"));
+        })
+        .finally(() => setBusy(false));
     }
     const authErr = params.get("error");
     if (authErr) setErr("GitHub authentication failed. Try again or use email.");
-  }, [params, nav]);
+  }, [params, nav, setTokenAndUser]);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
