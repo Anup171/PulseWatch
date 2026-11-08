@@ -32,3 +32,8 @@ stitch_pulsewatch_docs_style/
 .markdownlint.json
 markdownlint.json
 
+# Agents & Archify
+.agents/
+skills-lock.json
+.archify/
+
